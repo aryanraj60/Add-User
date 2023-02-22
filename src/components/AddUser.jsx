@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { GrUserAdd } from "react-icons/gr";
-import { Country, State, City } from "country-state-city";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
-import { Modal, TextInput, Label, Button, Select } from "flowbite-react";
+import { Modal, TextInput, Label } from "flowbite-react";
 import { db } from "../utils/firebase";
 
 const AddUser = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
-  const [cityOptions, setCityOptions] = useState([]);
 
   const handleClick = () => {
     setShowModal(!showModal);
@@ -146,8 +143,6 @@ const AddUser = () => {
                   value={selectedCountry}
                   onChange={(val) => {
                     setSelectedCountry(val);
-                    setSelectedState("");
-                    setSelectedCity("");
                   }}
                 />
               </div>
@@ -165,7 +160,6 @@ const AddUser = () => {
                   value={selectedState}
                   onChange={(val) => {
                     setSelectedState(val);
-                    setSelectedCity("");
                   }}
                 />
               </div>

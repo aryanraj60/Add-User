@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { GrUserAdd } from "react-icons/gr";
+
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
-import { Modal, TextInput, Label, Button, Select } from "flowbite-react";
+import { Modal, TextInput, Label } from "flowbite-react";
 import { db } from "../utils/firebase";
 
 const UpdateUser = ({ selectedUser, openUpdateModal, setOpenUpdateModal }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
-  const [name, setName] = useState(selectedUser?.name && selectedUser.name);
-  const [email, setEmail] = useState(selectedUser?.email && selectedUser.email);
 
   const handleClick = () => {
     setOpenUpdateModal(!openUpdateModal);
